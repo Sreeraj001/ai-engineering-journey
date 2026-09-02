@@ -11,6 +11,7 @@ checking the same element and previous elements which are already checked
 
 ### Code - [Java]
 
+
 class Solution {
     public boolean containsDuplicate(int[] nums) {
         for(int i=0; i< nums.length; i++) {
