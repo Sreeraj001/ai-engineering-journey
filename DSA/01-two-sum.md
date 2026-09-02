@@ -21,7 +21,7 @@ Try every possible pair of elements.
 For each `i`, compare `nums[i]` with every element after it.
 
 ## Code
-
+```java
   class Solution {
     public int[] twoSum(int[] nums, int target) {
 
@@ -39,7 +39,7 @@ For each `i`, compare `nums[i]` with every element after it.
         return sols;
     }
 }
-
+```
   1.  Time complexity : O(n^2)
      two loops gives n*n/2 comparisons
   2. space complexity O(1)
@@ -51,6 +51,7 @@ For each `i`, compare `nums[i]` with every element after it.
 Sort the array and keep all the elements like this - [ (element, position) ] . use two pointers left and right. check if the sum of elements in left and right makes up the target 
 
 ## Code
+```java
 2. Solution using sorted array
    class Solution {
 		class NumPos {
@@ -92,6 +93,7 @@ Sort the array and keep all the elements like this - [ (element, position) ] . u
 			return sols;
 		}
 }
+```
  1. time complexity: O(nlogn)- coming from sorting
  2. space complexity: O(n) 
 
@@ -102,6 +104,7 @@ Sort the array and keep all the elements like this - [ (element, position) ] . u
 Use a hashmap with key as difference with target.
 
 ## Code
+```java
    class Solution {
     public int[] twoSum(int[] nums, int target) {
 
@@ -121,12 +124,12 @@ Use a hashmap with key as difference with target.
         return sols;
     }
 }
-
+```
  1. time complexity: O(n)  - only one loop and hashmap searching/inserting is O(1)
  2. space complexity: O(n)
 
 ## Python code using dict 
-
+```python
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         diff_dict = {}
@@ -138,3 +141,4 @@ class Solution:
                 return [diff_dict[diff], index]
 
             diff_dict[num] = index
+```
