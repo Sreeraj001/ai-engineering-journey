@@ -124,3 +124,17 @@ Use a hashmap with key as difference with target.
 
  1. time complexity: O(n)  - only one loop and hashmap searching/inserting is O(1)
  2. space complexity: O(n)
+
+## Python code using dict 
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        diff_dict = {}
+
+        for index, num in enumerate(nums):
+            diff = target - num
+
+            if diff in diff_dict:
+                return [diff_dict[diff], index]
+
+            diff_dict[num] = index
