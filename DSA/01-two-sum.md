@@ -51,8 +51,9 @@ For each `i`, compare `nums[i]` with every element after it.
 Sort the array and keep all the elements like this - [ (element, position) ] . use two pointers left and right. check if the sum of elements in left and right makes up the target 
 
 ## Code
-```java
+
 2. Solution using sorted array
+```java
    class Solution {
 		class NumPos {
 			int num;
