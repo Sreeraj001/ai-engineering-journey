@@ -30,7 +30,7 @@ A models job is all about figuring out most accurate value for w and b using whi
 
 Error is the difference between predicted output vs the actual output.
 
-e = y - ȳ 
+e = ȳ - y 
 
 ### Loss
 
@@ -50,7 +50,7 @@ for a linear regression
 Y = wX + b
 a change in w and b can change Y. the direction and amount of the change ( increase or decrease) can be determined by the derivative of Y with respect to w.
 
-Gradient Descent is the idea of finding a gradient which can be applied in w/b to adjust its value.
+Gradient descent uses the gradient of the loss with respect to each parameter to determine how that parameter should be updated to reduce the loss.
 
 #### Finding the gradient for w
 
@@ -82,7 +82,9 @@ dȳ/dw = d(xw+b)/dw
 ie dL/dw = 2e * 1 * x
          = 2x(ȳ - y)
 
-**new w = w - 2x(ȳ - y)**
+**new w = w - α*2x(ȳ - y)**
+
+note: we apply a learning rate **α** which helps to reduce overshoot 
 
 #### Finding the Gradient for b
 
@@ -105,7 +107,13 @@ dȳ/db = d(wx + b)/db
 ie dL/db = 2e
          = 2(ȳ - y)
 
-**new w = w - 2x(ȳ - y)**
+**new b = b - α*2x(ȳ - y)**
+
+
+note: when we have multiple examples, we minimize MSE:
+
+<img width="711" height="435" alt="image" src="https://github.com/user-attachments/assets/ca2e708f-0234-448e-99bd-5032ef35d836" />
+
 
          
 
