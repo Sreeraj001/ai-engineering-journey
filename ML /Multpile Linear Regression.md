@@ -12,15 +12,22 @@ We have for linear regression
  where w1 , w2 .. are the weights of features x1, x2 ....
 
  Similar to linear regression,
- Gradient of x1 -> 2 * x1 * (ȳ - y)
-             x2 -> 2 * x2 * (ȳ -y)
+ Gradient of weights are
+ ∂L/∂w₁ = 2x₁(ŷ - y)
+∂L/∂w₂ = 2x₂(ŷ - y)
 
 We don't calculate gradient from just one training sample, instead it is the average of all training data
+for weight
+ie, ***​∂MSE/∂wⱼ = (1/n) Σᵢ 2(ŷᵢ - yᵢ)xᵢⱼ***
+for bias
+***∂MSE/∂b = (1/n) Σᵢ 2(ŷᵢ - yᵢ)***
 
-ie, ***​∂MSE/∂wj​= 1∑n ​2(y^​i​−yi​)xij***
+w_new = w - α × gradient
+
+b_new = b - α × ∂MSE/∂b
 
 ## Scaling dataset 
-Larger x values tend to have higher gradient value for the variable and it results in larger jump for one variable. It causes the training to be unstable.
+For the same prediction error, a feature with a larger magnitude tends to produce a larger gradient for its corresponding weigh for the variable and it results in larger jump for one variable. It causes the training to be unstable.
 scaling the data helps reduce this issue.
 
 Commons ways to scale the data are,
