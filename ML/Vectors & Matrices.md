@@ -82,7 +82,7 @@ The order of the resulting vector is  (n * 3) * (3 * 1) = (n, 1)
 
 A neuron does the linear regression and apply an activation function to the result.
 
-**Why an activation function :** All neurons typically does linear regression results nothing but a linear regression calculation, using which it cannot solve complex problems like identifying languages, work with images and sounds etc. An activation function breaks the linearity and helps the neuron learn complex patterns.
+**Why an activation function :** All neurons typically does linear regression results nothing but a linear regression calculation, using which it cannot solve complex problems like identifying languages, work with images and sounds etc. An activation function introduces non-linearity and helps the neuron learn complex patterns.
 
 **RELU (Rectified Linear Unit)** 
 Relu is such a loss function which eliminates negative values. 
