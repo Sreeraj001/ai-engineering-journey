@@ -22,7 +22,7 @@ x<sub>3</sub>
 
 in General 
 
-Ŷ​=X<sup>T</sup>W+b​
+Ŷ​=W<sup>T</sup>X+b​
 
 eg: let features like ram, memory, and cpu predicts laptop price
 
@@ -48,7 +48,7 @@ then
  + 10
 ```
 Ŷ = 5*16 + 6*1000 + 4*7 + 10
-  = 6118
+  = 6128
 
 similarly if we have n number of training rows 
 
@@ -65,18 +65,24 @@ x<sub>n1</sub> & x<sub>n2</sub> &. & x<sub>nn</sub>
 \begin{bmatrix}
 w<sub>1</sub> \\\
 w<sub>2</sub> \\\
-w<sub>2</sub>
+w<sub>3</sub>
 \end{bmatrix} 
  + b
 ```
 
+or Ŷ = XW + b
+
+ X = (n, 3)
+ W = (3, 1)
+
+ so 
 The order of the resulting vector is  (n * 3) * (3 * 1) = (n, 1) 
 
 ### Linear regression and neurons
 
-A neuron does the linear regression and apply a loss function to the result.
+A neuron does the linear regression and apply an activation function to the result.
 
-**Why a loss function :** All neurons typically does linear regression results nothing but a linear regression calculation, using which it cannot solve complex problems like identifying languages, work with images and sounds etc. A loss function breaks the linearity and helps the neuron learn complex patterns.
+**Why an activation function :** All neurons typically does linear regression results nothing but a linear regression calculation, using which it cannot solve complex problems like identifying languages, work with images and sounds etc. An activation function breaks the linearity and helps the neuron learn complex patterns.
 
 **RELU (Rectified Linear Unit)** 
 Relu is such a loss function which eliminates negative values. 
