@@ -78,17 +78,6 @@ or Ŷ = XW + b
  so 
 The order of the resulting vector is  (n * 3) * (3 * 1) = (n, 1) 
 
-### Linear regression and neurons
-
-A neuron does the linear regression and apply an activation function to the result.
-
-**Why an activation function :** All neurons typically does linear regression results nothing but a linear regression calculation, using which it cannot solve complex problems like identifying languages, work with images and sounds etc. An activation function introduces non-linearity and helps the neuron learn complex patterns.
-
-**RELU (Rectified Linear Unit)** 
-Relu is such a loss function which eliminates negative values. 
-Relu(x) -> x = x , if > 0 else outputs 0.
-eg: Relu(5) = 5 , Relu(-5) = 0.
-
 
 
 
