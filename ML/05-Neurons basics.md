@@ -79,6 +79,8 @@ W1,W2 -> Z1,Z2 -> A1,A2 -> Z<sub>out</sub> -> A<sub>out</sub> -> L
 
 by applying chain rule
 
+dL/dW1 = dL / dA<sub>out</sub> x dA<sub>out</sub> / Z<sub>out</sub> x dZ<sub>out</sub>/dA1 x dA1/dZ1 x dZ1/dW1
+
 
 
 ##### Backward pass
