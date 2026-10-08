@@ -1,5 +1,5 @@
 # Vectors & Matrices
-This is an inline vector: $\bigl( \begin{smallmatrix} a \\ b \end{smallmatrix} \bigr)$
+
 We have according to multiple linear regression,
   Ŷ = w<sub>1</sub>x<sub>1</sub>+w<sub>2</sub>x<sub>2</sub>​+w<sub>3</sub>x<sub>3</sub>+b
 
