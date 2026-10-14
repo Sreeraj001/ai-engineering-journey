@@ -74,21 +74,84 @@ A = relu(19) = 19
 
 ##### Multiple neurons in hidden layer
 ##### Forward pass
+Loss will be calculated in foward pass
 
 W1,W2 -> Z1,Z2 -> A1,A2 -> Z<sub>out</sub> -> A<sub>out</sub> -> L
 
-by applying chain rule
+eg: Consider a network with 2 hidden neuron and 1 output neuron
 
-dL/dW1 = dL / dA<sub>out</sub> x dA<sub>out</sub> / Z<sub>out</sub> x dZ<sub>out</sub>/dA1 x dA1/dZ1 x dZ1/dW1
+let x<sub>1</sub>  = 2 , w<sub>1</sub> = 5,  b<sub>1</sub> = 3,
+x<sub>2</sub>  = 3 , w<sub>2</sub> = 4,  b<sub>2</sub> = 6,
+ w<sub>out1</sub> = 5,  w<sub>out2</sub> = 4,  b<sub>out</sub> = 2
+ and Y = 150
 
+Z<sub>1</sub> = x<sub>1</sub>w<sub>1</sub> + b<sub>1</sub>
+= 2 x 5 + 3 = 13
 
+A<sub>1</sub> = ReLU(13) = 13
+
+Z<sub>2</sub> = x<sub>2</sub>w<sub>2</sub> + b<sub>2</sub>
+= 3 x 4 + 6 = 18
+A<sub>2</sub> = ReLU(18) = 18
+
+Z<sub>out</sub> =  A<sub>1</sub>w<sub>out1</sub>  + A<sub>2</sub>w<sub>out2</sub> + b<sub>out</sub>
+
+= 13 x 5 + 18 x 4 + 2 = 65 + 72 + 2 = 139
+
+A<sub>out</sub> = ReLU(139) = 139
+
+Loss L = (A<sub>out</sub> - Y)<sup>2</sup>
+= (139 - 150) <sup>2</sup>  = 121
 
 ##### Backward pass
+Loss calculated in forward pass will be used to calculate gradient for weights and biases in backward pass,
 
-L -> A<sub>out</sub> -> Z<sub>out</sub> -> A1,A2 -> Z1, Z2 -> W1,W2
+for output neuron,
+
+L -> A<sub>out</sub> -> Z<sub>out</sub>  -> W<sub>out</sub>
+
+gradient for W<sub>out</sub>  = dL / dW<sub>out</sub>
+by applying chain rule,
+
+dL/dW<sub>out</sub> = dL / dA<sub>out</sub> x dA<sub>out</sub> / Z<sub>out</sub> x dZ<sub>out</sub>/dW<sub>out</sub>
+
+dL / dA<sub>out</sub> = 2(A - Y)
+
+dA<sub>out</sub> / Z<sub>out</sub> = 1 if Z > 0,  or 0
+
+dZ<sub>out</sub>/dW<sub>out</sub> = W
+
+so dL/dW<sub>out</sub> = 2(A <sub>out</sub>- Y) x W
+
+similarly,
+dL/db<sub>out</sub> = dL / dA<sub>out</sub> x dA<sub>out</sub> / Z<sub>out</sub> x dZ<sub>out</sub>/db<sub>out</sub>
 
 
+dZ<sub>out</sub>/db<sub>out</sub> = 1
+
+so dL/db<sub>out</sub>  = 2(A<sub>out</sub> - Y)
 
 
+for neorons in hidden layer,
+
+L -> A<sub>out</sub> -> Z<sub>out</sub> -> A<sub>1</sub>,A<sub>2</sub> -> Z<sub>1</sub>, Z<sub>2</sub> -> W<sub>1</sub>,W<sub>2</sub>
 
 
+by applying chain rule ,
+
+dL / dW<sub>1</sub> =   = dL / dA<sub>out</sub> x dA<sub>out</sub> / Z<sub>out</sub> x dZ<sub>out</sub>/dA<sub>1</sub> x dA<sub>1</sub>/dZ<sub>1</sub> x dZ<sub>1</sub>/dW<sub>1</sub>
+
+we have dL / dA<sub>out</sub> x dA<sub> out</sub> / Z<sub>out </sub> = 2(A<sub>out</sub> - Y)
+
+dZ<sub>out</sub>/dA<sub>1</sub>= d(w<sub>out1</sub>A<sub>1</sub> + w<sub>out2</sub>A<sub>2</sub> + b<sub>out</sub>) / dA<sub>1</sub> = w<sub>out1</sub>
+
+dA<sub>1</sub>/dZ<sub>1</sub> = 1 if Z<sub>1</sub> > 0, else 0
+
+dZ<sub>1</sub>/dW<sub>1</sub> = x<sub>1</sub>
+
+so 
+dL / dW<sub>1</sub> = 2(A<sub>out</sub> - Y). w<sub>out1</sub> .  x<sub>1</sub>
+
+dL / db<sub>1</sub> =   = dL / dA<sub>out</sub> x dA<sub>out</sub> / Z<sub>out</sub> x dZ<sub>out</sub>/dA<sub>1</sub> x dA<sub>1</sub>/dZ<sub>1</sub> x dZ<sub>1</sub>/db<sub>1</sub>
+
+= 2(A<sub>out</sub> - Y). w<sub>out1</sub> 
