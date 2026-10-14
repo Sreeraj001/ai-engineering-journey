@@ -5,7 +5,7 @@ A neuron basically does the linear regression and apply an activation function t
 **Why an activation function :** All neurons typically does linear regression, results nothing but a linear regression calculation, using which it cannot solve complex problems like identifying languages, work with images and sounds etc. An activation function introduces non-linearity and helps the neuron learn complex patterns.
 
 **RELU (Rectified Linear Unit)** 
-Relu is such a loss function which eliminates negative values. 
+Relu is such a activation function which eliminates negative values. 
 Relu(x) -> x = x , if > 0 else outputs 0.
 eg: Relu(5) = 5 , Relu(-5) = 0.
 
@@ -37,18 +37,18 @@ dL/dw = dL/dA x dA/dZ x dZ/dw
 
 dA/dZ is 0 if A is 0 or 1 otherwise. since Relu(Z) = Max(0, Z)
 
-dL/dA = d(A - Z)<sup>2</sup>/dA = 2(A - Z)
+dL/dA = d(A - Y)<sup>2</sup>/dA = 2(A - Y)
 
 dZ/dw = d(wx + b)/dw = x
 
-so **dL/dw** = 2(A - Z) * (0 or 1 ) * x
+so **dL/dw** = 2(A - Y) * (0 or 1 ) * x
 
 similarly 
 dL/db = dL/dA x dA/dZ x dZ/db
 
-dZ/dw = d(wx + b)/db = 1
+dZ/db = d(wx + b)/db = 1
 
-so **dL/db** = 2(A - Z)
+so **dL/db** = 2(A - Y)
 
 **Dying Relu**
 gradient becomes 0 for relu as activation function for a -ve prediction, which prevents updating weights further.
@@ -119,9 +119,9 @@ dL / dA<sub>out</sub> = 2(A - Y)
 
 dA<sub>out</sub> / Z<sub>out</sub> = 1 if Z > 0,  or 0
 
-dZ<sub>out</sub>/dW<sub>out</sub> = W
+dZ<sub>out</sub>/dW<sub>outi</sub> = A<sub>i</sub>
 
-so dL/dW<sub>out</sub> = 2(A <sub>out</sub>- Y) x W
+so dL/dW<sub>out</sub> = 2(A <sub>out</sub>- Y) x A<sub>i</sub>
 
 similarly,
 dL/db<sub>out</sub> = dL / dA<sub>out</sub> x dA<sub>out</sub> / Z<sub>out</sub> x dZ<sub>out</sub>/db<sub>out</sub>
