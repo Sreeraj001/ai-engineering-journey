@@ -45,7 +45,7 @@ class Solution {
 
 ## Idea 2
 for every i<sup>th</sup> item in the array
-check if sum<sub>i<sub> - sum<sub>j</sub> = k
+check if sum<sub>i</sub> - sum<sub>j</sub> = k
 a map can be used to record sum at every element
 #### Complexity
 Time : O(n)
