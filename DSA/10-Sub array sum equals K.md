@@ -61,9 +61,9 @@ class Solution {
         for(int num: nums) {
             sum += num;
             Integer diffCount = diffMap.get(sum - k);
-            if(diffCount != null){
-              count += diffMap.get(sum - k);
-            } 
+        if (diffCount != null) {
+            count += diffCount;
+        }
             diffMap.put(sum, diffMap.getOrDefault(sum, 0)+1); 
         }
 
